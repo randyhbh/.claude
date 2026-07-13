@@ -1,0 +1,34 @@
+# macOS / IDE
+.DS_Store
+.idea/
+
+# Claude Code runtime/cache state (regenerable, not config)
+.caveman-active
+.last-cleanup
+backups/
+cache/
+daemon/
+daemon.log
+debug/
+file-history/
+ide/
+jobs/
+paste-cache/
+plugins/
+projects/
+sessions/
+shell-snapshots/
+tasks/
+gh-pr-status-cache.json
+mcp-needs-auth-cache.json
+stats-cache.json
+history.jsonl
+
+# Personal/local overrides and backups, not shared config
+settings.local.json
+settings.json.bak
+CLAUDE.md.bak
+CLAUDE.original.md
+
+# Python
+__pycache__/
