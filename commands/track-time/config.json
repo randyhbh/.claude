@@ -1,0 +1,11 @@
+{
+  "jira_base_url": "https://mrge.atlassian.net",
+  "jira_email": "randy.bartumeu@mrge.com",
+  "jira_user": "currentUser()",
+  "status_in_progress": "In Progress",
+  "status_review": "In-Review",
+  "status_done": "Done",
+  "review_cap_seconds": 3600,
+  "updated_since": "startOfMonth()",
+  "done_since": "-7d"
+}
