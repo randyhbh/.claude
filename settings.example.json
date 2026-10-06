@@ -160,6 +160,17 @@
           }
         ]
       }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/bash /Users/randyhbh/.claude/hooks/episodic-memory-abi-check.sh",
+            "timeout": 120
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
