@@ -117,7 +117,7 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 |--------|-------|-----------|------|
 | `context7` | User (`~/.claude.json`) + plugin | HTTP `https://mcp.context7.com/mcp` | https://github.com/upstash/context7 |
 | `jetbrains` | User | SSE `localhost:64342` (IntelliJ built-in MCP server) | https://www.jetbrains.com/help/idea/mcp-server.html |
-| `jcodemunch` | Project | stdio `uvx jcodemunch-mcp` | https://github.com/jgravelle/jcodemunch-mcp |
+| `jcodemunch` | Project | stdio `/Users/randyhbh/.local/bin/jcodemunch-mcp` (pipx) | https://github.com/jgravelle/jcodemunch-mcp |
 | `grafana` | Project | stdio `uvx mcp-grafana` | https://github.com/grafana/mcp-grafana |
 | `radar` | Project | HTTP `localhost:9280/mcp` | Unknown origin |
 | `pg-aiguide` | Plugin (`pg@aiguide`) | — | https://github.com/timescale/pg-aiguide |
@@ -130,7 +130,7 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | Tool | Version | Used for | Link |
 |------|---------|----------|------|
 | `rtk` | 0.51.0 | `PreToolUse` Bash hook, rewrites commands to token-optimized output | https://github.com/rtk-ai/rtk |
-| `jcodemunch-mcp` | 1.108.x (MCP via `uvx`, hooks via pipx) | MCP server + Read/Edit/Subagent/Compact/Worktree hooks | https://github.com/jgravelle/jcodemunch-mcp |
+| `jcodemunch-mcp` | 1.108.x (pipx; MCP server, hooks and watcher) | MCP server + Read/Edit/Subagent/Compact/Worktree hooks | https://github.com/jgravelle/jcodemunch-mcp |
 | `graphify` (`graphifyy` on PyPI) | 0.8.8 | Knowledge graph in `graphify-out/` | https://github.com/safishamsi/graphify |
 
 ## Rebuilding the jcodemunch setup
@@ -155,7 +155,8 @@ pipx inject jcodemunch-mcp watchfiles
 #    In ~/.code-index/config.jsonc set:  "max_folder_files": 5000,
 
 # 3. MCP server, from inside the project checkout (local scope, stored in ~/.claude.json)
-claude mcp add jcodemunch -- uvx jcodemunch-mcp
+#    Uses the pipx binary so MCP server, hooks and watcher run one install (no uvx copy)
+claude mcp add jcodemunch -- /Users/randyhbh/.local/bin/jcodemunch-mcp
 
 # 4. Hooks: copy the jcodemunch entries from the Hooks table below into ~/.claude/settings.json,
 #    using the absolute path from `which jcodemunch-mcp`
@@ -173,16 +174,15 @@ Verify with `jcodemunch-mcp watch-status` (service `active: true`, repos `fresh`
 There is no watch list: `watch-all` re-scans the index registry every 30s and watches every indexed repo. To watch a new
 repo, index it (`jcodemunch-mcp index <repo-root>`); to stop watching one, delete its index.
 
-Upgrading — two installs, keep them on the same version:
+Upgrading:
 
 ```bash
-pipx upgrade --include-injected jcodemunch-mcp                      # hooks + watcher, also upgrades watchfiles
+pipx upgrade --include-injected jcodemunch-mcp                      # also upgrades watchfiles
 launchctl kickstart -k gui/$(id -u)/us.gravelle.jcodemunch-watch   # watcher keeps running old code until restarted
-uvx jcodemunch-mcp@latest --version                                 # refresh the uvx copy used by the MCP server
 ```
 
-Then restart Claude Code so the MCP server starts on the new version, and compare
-`uvx jcodemunch-mcp --version` with `jcodemunch-mcp --version`.
+Then restart Claude Code so the MCP server starts on the new version. Avoid `jcodemunch-mcp upgrade`: it runs
+`pip install -U` inside the venv instead of going through pipx.
 
 Index repo roots only. Indexing a parent folder like `~/workspace` creates a separate giant index that the watcher also
 picks up; remove one with the `invalidate_cache` MCP tool and restart the service with
@@ -205,8 +205,7 @@ picks up; remove one with the `invalidate_cache` MCP tool and restart the servic
 
 jcodemunch hooks must use the absolute path `/Users/randyhbh/.local/bin/jcodemunch-mcp` (pipx install), which is what
 `jcodemunch-mcp init` writes. The bare name is not on the minimal `PATH` hooks get when Claude Code is launched outside a
-login shell (desktop app, IDE): `env -i /bin/sh -c 'jcodemunch-mcp --version'` fails with `command not found`. Keep the
-pipx copy current with `pipx upgrade jcodemunch-mcp` so the hooks match the `uvx`-run MCP server version.
+login shell (desktop app, IDE): `env -i /bin/sh -c 'jcodemunch-mcp --version'` fails with `command not found`.
 
 ## Custom slash commands (`~/.claude/commands/`)
 
