@@ -193,6 +193,7 @@ picks up; remove one with the `invalidate_cache` MCP tool and restart the servic
 | `TaskCompleted` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-taskcomplete` |
 | `WorktreeCreate` / `WorktreeRemove` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-event create` / `remove` |
 | `SessionStart` | `caveman-activate.js` (from the caveman plugin) |
+| `SessionStart` | `/bin/bash ~/.claude/hooks/episodic-memory-abi-check.sh` — rebuilds episodic-memory's `better-sqlite3` after a Node ABI change; silent when healthy (~85 ms). Tests: `bash ~/.claude/hooks/episodic-memory-abi-check.test.sh`. Remove once obra/episodic-memory#94/#170 are fixed |
 | `UserPromptSubmit` | `caveman-mode-tracker.js` (from the caveman plugin) |
 | `statusLine` | `bash ~/.claude/hooks/caveman-statusline.sh` |
 
