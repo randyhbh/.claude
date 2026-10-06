@@ -133,6 +133,47 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | `jcodemunch-mcp` | 1.108.x (MCP via `uvx`, hooks via pipx) | MCP server + Read/Edit/Subagent/Compact/Worktree hooks | https://github.com/jgravelle/jcodemunch-mcp |
 | `graphify` (`graphifyy` on PyPI) | 0.8.8 | Knowledge graph in `graphify-out/` | https://github.com/safishamsi/graphify |
 
+## Rebuilding the jcodemunch setup
+
+jcodemunch state lives in four places, none of them in this repo:
+
+| What | Where |
+|------|-------|
+| CLI + `watchfiles` dependency | pipx venv `~/.local/pipx/venvs/jcodemunch-mcp` |
+| Config (`max_folder_files`) | `~/.code-index/config.jsonc` |
+| Indexes, watcher logs | `~/.code-index/*.db`, `~/.code-index/logs/` |
+| Watcher service | `~/Library/LaunchAgents/us.gravelle.jcodemunch-watch.plist` |
+
+Steps on a new machine:
+
+```bash
+# 1. CLI used by hooks and the watcher; watchfiles is required by watch/watch-all
+pipx install jcodemunch-mcp
+pipx inject jcodemunch-mcp watchfiles
+
+# 2. Raise the local-folder file cap; the default 2000 truncates mrge-pub-intelligence-hub (~2.6k tracked files)
+#    In ~/.code-index/config.jsonc set:  "max_folder_files": 5000,
+
+# 3. MCP server, from inside the project checkout (local scope, stored in ~/.claude.json)
+claude mcp add jcodemunch -- uvx jcodemunch-mcp
+
+# 4. Hooks: copy the jcodemunch entries from the Hooks table below into ~/.claude/settings.json,
+#    using the absolute path from `which jcodemunch-mcp`
+
+# 5. Background re-indexing (launchd, starts at login, KeepAlive)
+jcodemunch-mcp watch-install
+
+# 6. Initial index per repo; the watcher keeps it fresh afterwards
+jcodemunch-mcp index /Users/randyhbh/workspace/mrge-pub-intelligence-hub
+```
+
+Verify with `jcodemunch-mcp watch-status` (service `active: true`, repos `fresh`) and check
+`~/.code-index/logs/watch.err` for `Now watching <repo>` and no `crashed` lines.
+
+Index repo roots only. Indexing a parent folder like `~/workspace` creates a separate giant index that the watcher also
+picks up; remove one with the `invalidate_cache` MCP tool and restart the service with
+`launchctl kickstart -k gui/$(id -u)/us.gravelle.jcodemunch-watch`.
+
 ## Hooks (`~/.claude/settings.json`)
 
 | Event | Command |
