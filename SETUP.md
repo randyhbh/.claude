@@ -173,6 +173,17 @@ Verify with `jcodemunch-mcp watch-status` (service `active: true`, repos `fresh`
 There is no watch list: `watch-all` re-scans the index registry every 30s and watches every indexed repo. To watch a new
 repo, index it (`jcodemunch-mcp index <repo-root>`); to stop watching one, delete its index.
 
+Upgrading — two installs, keep them on the same version:
+
+```bash
+pipx upgrade --include-injected jcodemunch-mcp                      # hooks + watcher, also upgrades watchfiles
+launchctl kickstart -k gui/$(id -u)/us.gravelle.jcodemunch-watch   # watcher keeps running old code until restarted
+uvx jcodemunch-mcp@latest --version                                 # refresh the uvx copy used by the MCP server
+```
+
+Then restart Claude Code so the MCP server starts on the new version, and compare
+`uvx jcodemunch-mcp --version` with `jcodemunch-mcp --version`.
+
 Index repo roots only. Indexing a parent folder like `~/workspace` creates a separate giant index that the watcher also
 picks up; remove one with the `invalidate_cache` MCP tool and restart the service with
 `launchctl kickstart -k gui/$(id -u)/us.gravelle.jcodemunch-watch`.
