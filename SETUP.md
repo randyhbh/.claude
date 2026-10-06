@@ -23,12 +23,12 @@ Snapshot taken 2026-10-06 from `~/.claude/`, `~/.agents/`, `~/.claude.json` and 
 | `redpanda-connect-plugins` | https://github.com/redpanda-data/connect |
 | `gitkraken` | Local directory `~/.claude/plugins/marketplaces/gitkraken` (installed by GitKraken Desktop / GitLens) |
 
-## Plugins (all enabled, user scope)
+## Plugins (user scope)
 
 | Plugin | Version | What it does | Link |
 |--------|---------|--------------|------|
 | `superpowers@superpowers-marketplace` | 6.4.2 | Skills library: brainstorming, TDD, systematic debugging, plans, subagent-driven dev | https://github.com/obra/superpowers |
-| `superpowers@claude-plugins-official` | 6.4.1 | Same plugin as above, from the official marketplace | https://github.com/obra/superpowers |
+| `superpowers@claude-plugins-official` | 6.4.1 | **Disabled** — duplicate of the above, from the official marketplace | https://github.com/obra/superpowers |
 | `episodic-memory@superpowers-marketplace` | 1.6.0 | Semantic search over past conversations | https://github.com/obra/episodic-memory |
 | `caveman@caveman` | 25d22f8 | Terse output mode, cavecrew subagents, statusline | https://github.com/JuliusBrussee/caveman |
 | `ponytail@ponytail` | 4.8.4 | YAGNI / laziest-working-solution mode | https://github.com/DietrichGebert/ponytail |
