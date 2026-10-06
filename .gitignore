@@ -43,3 +43,6 @@ skills/synced/
 
 # Session plans can contain work details; keep local
 plans/
+
+# Real settings hold machine/org-specific autoMode.environment; settings.example.json is the shareable copy
+settings.json

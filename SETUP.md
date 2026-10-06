@@ -11,6 +11,17 @@ Snapshot taken 2026-10-06 from `~/.claude/`, `~/.agents/`, `~/.claude.json` and 
 | `~/.claude/RTK.md` | Global, imported by `CLAUDE.md` via `@RTK.md` | https://github.com/randyhbh/.claude/blob/main/RTK.md |
 | `mrge-pub-intelligence-hub/CLAUDE.md` | Project | No link: gitignored (`.gitignore:153`), exists only on local disk |
 
+## Settings
+
+`~/.claude/settings.json` is not tracked: its `autoMode.environment` block holds org-specific details, and `autoMode`
+is only read from user (or managed) settings, so it cannot move to a local file. The shareable copy is
+[`settings.example.json`](https://github.com/randyhbh/.claude/blob/main/settings.example.json) — everything except
+`autoMode.environment`. On a new machine copy it to `settings.json` and add the `autoMode.environment` block by hand. Regenerate the example after settings changes:
+
+```bash
+python3 -c "import json,os;p=os.path.expanduser('~/.claude/');d=json.load(open(p+'settings.json'));d.get('autoMode',{}).pop('environment',None);open(p+'settings.example.json','w').write(json.dumps(d,indent=2,ensure_ascii=False)+'\n')"
+```
+
 ## Plugin marketplaces
 
 | Marketplace | Source |

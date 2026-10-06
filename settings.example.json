@@ -1,0 +1,224 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew tasks:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:www.datafaker.net)",
+      "Bash(./gradlew :offers-api:bootRun:*)",
+      "Bash(./gradlew :offers-api:compileJava:*)",
+      "Bash(./gradlew :offers-api:test:*)",
+      "Bash(curl:*)",
+      "Bash(jq:*)",
+      "Bash(AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test aws:*)",
+      "Bash(docker logs:*)",
+      "Bash(docker compose:*)",
+      "WebFetch(domain:docs.localstack.cloud)",
+      "WebFetch(domain:github.com)",
+      "WebSearch",
+      "Bash(docker inspect:*)",
+      "Bash(docker run:*)",
+      "Skill(superpowers:systematic-debugging)",
+      "Bash(grep:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(tree:*)",
+      "Bash(mkdir:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(kubectl get:*)",
+      "Bash(find:*)",
+      "mcp__jetbrains__list_directory_tree",
+      "Bash(wc:*)",
+      "Bash(docker exec:*)",
+      "Bash(./gradlew :permission-engine-api:dependencies:*)",
+      "Skill(superpowers:brainstorming)",
+      "Skill(superpowers:writing-plans)",
+      "Skill(superpowers:subagent-driven-development)",
+      "Skill(superpowers:executing-plans)",
+      "mcp__jetbrains__create_new_file",
+      "mcp__context7__resolve-library-id",
+      "Bash(xargs cat:*)",
+      "Bash(cat:*)",
+      "Bash(./gradlew:*)",
+      "Bash(git mv:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Skill(superpowers:requesting-code-review)",
+      "Bash(git show:*)",
+      "mcp__context7__query-docs",
+      "WebFetch(domain:forum.opensearch.org)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(git rev-parse:*)",
+      "Bash(unzip:*)",
+      "WebFetch(domain:opentelemetry.io)",
+      "WebFetch(domain:www.elastic.co)",
+      "mcp__plugin_episodic-memory_episodic-memory__search",
+      "Bash(gh pr view:*)",
+      "Bash(gh api:*)",
+      "Bash(gh pr diff:*)",
+      "mcp__plugin_context7_context7__query-docs",
+      "mcp__plugin_pg_pg-aiguide__search_docs",
+      "WebFetch(domain:redocly.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(npm view:*)",
+      "Bash(npm info:*)",
+      "Bash(git:*)",
+      "Bash(jar tf:*)",
+      "Bash(jar xf:*)",
+      "mcp__jetbrains__get_file_problems",
+      "mcp__jetbrains__get_symbol_info",
+      "Read(//Users/randyhbh/workspace/mrge-pub-intelligence-hub/**)",
+      "Bash(test:*)",
+      "Bash(for f:*)",
+      "Read(//tmp/**)",
+      "Bash(cp:*)",
+      "WebFetch(domain:central.sonatype.com)"
+    ],
+    "defaultMode": "auto"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/randyhbh/.local/bin/jcodemunch-mcp hook-posttooluse"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/randyhbh/.local/bin/jcodemunch-mcp hook-precompact"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/randyhbh/.local/bin/jcodemunch-mcp hook-pretooluse"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/opt/homebrew/bin/rtk hook claude"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/randyhbh/.local/bin/jcodemunch-mcp hook-subagent-start"
+          }
+        ]
+      }
+    ],
+    "TaskCompleted": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/randyhbh/.local/bin/jcodemunch-mcp hook-taskcomplete"
+          }
+        ]
+      }
+    ],
+    "WorktreeCreate": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/randyhbh/.local/bin/jcodemunch-mcp hook-event create"
+          }
+        ]
+      }
+    ],
+    "WorktreeRemove": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/randyhbh/.local/bin/jcodemunch-mcp hook-event remove"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash \"/Users/randyhbh/.claude/hooks/caveman-statusline.sh\""
+  },
+  "enabledPlugins": {
+    "caveman@caveman": true,
+    "episodic-memory@superpowers-marketplace": true,
+    "gitkraken-hooks@gitkraken": true,
+    "jdtls-lsp@claude-plugins-official": true,
+    "kotlin-lsp@claude-plugins-official": true,
+    "pg@aiguide": true,
+    "superpowers@superpowers-marketplace": true,
+    "code-review@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "redpanda-connect@redpanda-connect-plugins": true,
+    "ponytail@ponytail": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "gitkraken": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/randyhbh/.claude/plugins/marketplaces/gitkraken"
+      }
+    },
+    "redpanda-connect-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "redpanda-data/connect"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "tui": "fullscreen",
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(rtk *)"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(rm:*) in infrastructure/",
+      "tofu apply / terraform apply in infrastructure/ against prod* workspaces"
+    ]
+  },
+  "voiceEnabled": true
+}
