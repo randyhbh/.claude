@@ -99,6 +99,7 @@ For complete methodology, see the systematic-debugging skill.
 
 Always use jCodemunch-MCP tools for code navigation. Never fall back to Read, Grep, Glob, or Bash for code exploration.
 **Exception:** Use `Read` when need to edit a file — agent harness requires `Read` before `Edit`/`Write` succeeds. Use jCodemunch tools to *find and understand* code, then `Read` only the specific file about to modify.
+**Exception:** Files jCodemunch does not index (Markdown, `.blobl`, Dockerfiles, `.http` migrations, anything outside an indexed repo) → use `Read` / `git ls-files`, and say so. Check with `search_text` first if unsure whether a file type is indexed.
 
 **Start any session:**
 1. `resolve_repo { "path": "." }` — confirm project indexed. If not: `index_folder { "path": "." }`

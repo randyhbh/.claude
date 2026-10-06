@@ -40,7 +40,7 @@ python3 -c "import json,os;p=os.path.expanduser('~/.claude/');d=json.load(open(p
 |--------|---------|--------------|------|
 | `superpowers@superpowers-marketplace` | 6.4.2 | Skills library: brainstorming, TDD, systematic debugging, plans, subagent-driven dev | https://github.com/obra/superpowers |
 | `episodic-memory@superpowers-marketplace` | 1.6.0 | Semantic search over past conversations | https://github.com/obra/episodic-memory |
-| `caveman@caveman` | 25d22f8 | Terse output mode, cavecrew subagents, statusline | https://github.com/JuliusBrussee/caveman |
+| `caveman@caveman` | 25d22f8 | Terse output mode + skills (caveman, caveman-commit/-compress/-help/-review/-stats, cavecrew), cavecrew subagents, statusline. Skills come only from the plugin, not `npx skills` | https://github.com/JuliusBrussee/caveman |
 | `ponytail@ponytail` | 4.8.4 | YAGNI / laziest-working-solution mode | https://github.com/DietrichGebert/ponytail |
 | `code-review@claude-plugins-official` | d182ca4 | Multi-agent PR review | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review |
 | `code-simplifier@claude-plugins-official` | 1.0.0 | Simplify-recent-code agent | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-simplifier |
@@ -95,18 +95,6 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | writing-for-agents | https://skills.sh/mattpocock/skills/writing-for-agents |
 | writing-fragments | https://skills.sh/mattpocock/skills/writing-fragments |
 | writing-shape | https://skills.sh/mattpocock/skills/writing-shape |
-
-### JuliusBrussee/caveman — https://github.com/JuliusBrussee/caveman
-
-| Skill | skills.sh |
-|-------|-----------|
-| caveman | https://skills.sh/JuliusBrussee/caveman/caveman |
-| caveman-commit | https://skills.sh/JuliusBrussee/caveman/caveman-commit |
-| caveman-compress | https://skills.sh/JuliusBrussee/caveman/caveman-compress |
-| caveman-help | https://skills.sh/JuliusBrussee/caveman/caveman-help |
-| caveman-review | https://skills.sh/JuliusBrussee/caveman/caveman-review |
-| caveman-stats | https://skills.sh/JuliusBrussee/caveman/caveman-stats |
-| cavecrew | https://skills.sh/JuliusBrussee/caveman/cavecrew |
 
 ### Other sources
 
