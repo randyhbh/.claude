@@ -1,0 +1,162 @@
+# Claude Code Setup
+
+Inventory of the Claude Code plugins, skills, MCP servers, hooks, commands and instruction files in use.
+Snapshot taken 2026-10-06 from `~/.claude/`, `~/.agents/`, `~/.claude.json` and the `mrge-pub-intelligence-hub` checkout.
+
+## Instruction files (CLAUDE.md)
+
+| File | Scope | Link |
+|------|-------|------|
+| `~/.claude/CLAUDE.md` | Global, all projects | https://github.com/randyhbh/.claude/blob/main/CLAUDE.md |
+| `~/.claude/RTK.md` | Global, imported by `CLAUDE.md` via `@RTK.md` | https://github.com/randyhbh/.claude/blob/main/RTK.md |
+| `mrge-pub-intelligence-hub/CLAUDE.md` | Project | No link: gitignored (`.gitignore:153`), exists only on local disk |
+
+## Plugin marketplaces
+
+| Marketplace | Source |
+|-------------|--------|
+| `claude-plugins-official` | https://github.com/anthropics/claude-plugins-official |
+| `superpowers-marketplace` | https://github.com/obra/superpowers-marketplace |
+| `caveman` | https://github.com/JuliusBrussee/caveman |
+| `ponytail` | https://github.com/DietrichGebert/ponytail |
+| `aiguide` | https://github.com/timescale/pg-aiguide |
+| `redpanda-connect-plugins` | https://github.com/redpanda-data/connect |
+| `gitkraken` | Local directory `~/.claude/plugins/marketplaces/gitkraken` (installed by GitKraken Desktop / GitLens) |
+
+## Plugins (all enabled, user scope)
+
+| Plugin | Version | What it does | Link |
+|--------|---------|--------------|------|
+| `superpowers@superpowers-marketplace` | 6.4.2 | Skills library: brainstorming, TDD, systematic debugging, plans, subagent-driven dev | https://github.com/obra/superpowers |
+| `superpowers@claude-plugins-official` | 6.4.1 | Same plugin as above, from the official marketplace | https://github.com/obra/superpowers |
+| `episodic-memory@superpowers-marketplace` | 1.6.0 | Semantic search over past conversations | https://github.com/obra/episodic-memory |
+| `caveman@caveman` | 25d22f8 | Terse output mode, cavecrew subagents, statusline | https://github.com/JuliusBrussee/caveman |
+| `ponytail@ponytail` | 4.8.4 | YAGNI / laziest-working-solution mode | https://github.com/DietrichGebert/ponytail |
+| `context7@claude-plugins-official` | d182ca4 | Context7 docs MCP | https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/context7 |
+| `code-review@claude-plugins-official` | d182ca4 | Multi-agent PR review | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review |
+| `code-simplifier@claude-plugins-official` | 1.0.0 | Simplify-recent-code agent | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-simplifier |
+| `skill-creator@claude-plugins-official` | d182ca4 | Create and evaluate skills | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/skill-creator |
+| `claude-md-management@claude-plugins-official` | 1.0.0 | Audit and revise CLAUDE.md files | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management |
+| `jdtls-lsp@claude-plugins-official` | 1.0.0 | Java LSP (Eclipse JDT.LS) | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/jdtls-lsp |
+| `kotlin-lsp@claude-plugins-official` | 1.0.0 | Kotlin LSP | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/kotlin-lsp |
+| `atlassian@claude-plugins-official` | eb9a595 | Jira / Confluence MCP + skills | https://github.com/atlassian/atlassian-mcp-server |
+| `pg@aiguide` | 0.5.1 | PostgreSQL docs MCP + schema design skills | https://github.com/timescale/pg-aiguide |
+| `redpanda-connect@redpanda-connect-plugins` | 0.2.0 | Redpanda Connect pipeline + Bloblang skills | https://github.com/redpanda-data/connect |
+| `gitkraken-hooks@gitkraken` | 3.1.76 | Live session tracking in GitKraken products | No public link (local marketplace) |
+
+## Standalone skills (installed with `npx skills`, tracked in `~/.agents/.skill-lock.json`)
+
+Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
+
+### mattpocock/skills — https://github.com/mattpocock/skills
+
+| Skill | skills.sh |
+|-------|-----------|
+| ask-matt | https://skills.sh/mattpocock/skills/ask-matt |
+| claude-handoff | https://skills.sh/mattpocock/skills/claude-handoff |
+| code-review | https://skills.sh/mattpocock/skills/code-review |
+| codebase-design | https://skills.sh/mattpocock/skills/codebase-design |
+| diagnosing-bugs | https://skills.sh/mattpocock/skills/diagnosing-bugs |
+| domain-modeling | https://skills.sh/mattpocock/skills/domain-modeling |
+| git-guardrails-claude-code | https://skills.sh/mattpocock/skills/git-guardrails-claude-code |
+| grill-me | https://skills.sh/mattpocock/skills/grill-me |
+| grill-with-docs | https://skills.sh/mattpocock/skills/grill-with-docs |
+| grilling | https://skills.sh/mattpocock/skills/grilling |
+| handoff | https://skills.sh/mattpocock/skills/handoff |
+| implement | https://skills.sh/mattpocock/skills/implement |
+| improve-codebase-architecture | https://skills.sh/mattpocock/skills/improve-codebase-architecture |
+| loop-me | https://skills.sh/mattpocock/skills/loop-me |
+| migrate-to-shoehorn | https://skills.sh/mattpocock/skills/migrate-to-shoehorn |
+| prototype | https://skills.sh/mattpocock/skills/prototype |
+| research | https://skills.sh/mattpocock/skills/research |
+| resolving-merge-conflicts | https://skills.sh/mattpocock/skills/resolving-merge-conflicts |
+| scaffold-exercises | https://skills.sh/mattpocock/skills/scaffold-exercises |
+| setup-matt-pocock-skills | https://skills.sh/mattpocock/skills/setup-matt-pocock-skills |
+| setup-pre-commit | https://skills.sh/mattpocock/skills/setup-pre-commit |
+| setup-ts-deep-modules | https://skills.sh/mattpocock/skills/setup-ts-deep-modules |
+| tdd | https://skills.sh/mattpocock/skills/tdd |
+| teach | https://skills.sh/mattpocock/skills/teach |
+| to-questionnaire | https://skills.sh/mattpocock/skills/to-questionnaire |
+| to-spec | https://skills.sh/mattpocock/skills/to-spec |
+| to-tickets | https://skills.sh/mattpocock/skills/to-tickets |
+| triage | https://skills.sh/mattpocock/skills/triage |
+| wait-what | https://skills.sh/mattpocock/skills/wait-what |
+| wayfinder | https://skills.sh/mattpocock/skills/wayfinder |
+| wizard | https://skills.sh/mattpocock/skills/wizard |
+| writing-beats | https://skills.sh/mattpocock/skills/writing-beats |
+| writing-for-agents | https://skills.sh/mattpocock/skills/writing-for-agents |
+| writing-fragments | https://skills.sh/mattpocock/skills/writing-fragments |
+| writing-shape | https://skills.sh/mattpocock/skills/writing-shape |
+
+### JuliusBrussee/caveman — https://github.com/JuliusBrussee/caveman
+
+| Skill | skills.sh |
+|-------|-----------|
+| caveman | https://skills.sh/JuliusBrussee/caveman/caveman |
+| caveman-commit | https://skills.sh/JuliusBrussee/caveman/caveman-commit |
+| caveman-compress | https://skills.sh/JuliusBrussee/caveman/caveman-compress |
+| caveman-help | https://skills.sh/JuliusBrussee/caveman/caveman-help |
+| caveman-review | https://skills.sh/JuliusBrussee/caveman/caveman-review |
+| caveman-stats | https://skills.sh/JuliusBrussee/caveman/caveman-stats |
+| cavecrew | https://skills.sh/JuliusBrussee/caveman/cavecrew |
+
+### Other sources
+
+| Skill | Repo | skills.sh |
+|-------|------|-----------|
+| find-skills | https://github.com/vercel-labs/skills | https://skills.sh/vercel-labs/skills/find-skills |
+| github-actions-docs | https://github.com/xixu-me/skills | https://skills.sh/xixu-me/skills/github-actions-docs |
+| java-spring-boot | https://github.com/pluginagentmarketplace/custom-plugin-java | https://skills.sh/pluginagentmarketplace/custom-plugin-java/java-spring-boot |
+| kotlin-springboot | https://github.com/github/awesome-copilot | https://skills.sh/github/awesome-copilot/kotlin-springboot |
+| kubernetes-specialist | https://github.com/jeffallan/claude-skills | https://skills.sh/jeffallan/claude-skills/kubernetes-specialist |
+| graphify | https://github.com/safishamsi/graphify | — (lives in `~/.claude/skills/graphify/`, not in the skill lock) |
+
+## MCP servers
+
+| Server | Scope | Transport | Link |
+|--------|-------|-----------|------|
+| `context7` | User (`~/.claude.json`) + plugin | HTTP `https://mcp.context7.com/mcp` | https://github.com/upstash/context7 |
+| `jetbrains` | User | SSE `localhost:64342` (IntelliJ built-in MCP server) | https://www.jetbrains.com/help/idea/mcp-server.html |
+| `jcodemunch` | Project | stdio `uvx jcodemunch-mcp` | https://github.com/jgravelle/jcodemunch-mcp |
+| `grafana` | Project | stdio `uvx mcp-grafana` | https://github.com/grafana/mcp-grafana |
+| `radar` | Project | HTTP `localhost:9280/mcp` | Unknown origin |
+| `pg-aiguide` | Plugin (`pg@aiguide`) | — | https://github.com/timescale/pg-aiguide |
+| `episodic-memory` | Plugin | — | https://github.com/obra/episodic-memory |
+| `atlassian` | Plugin | — | https://github.com/atlassian/atlassian-mcp-server |
+| Atlassian Rovo, Claude Docs | claude.ai connectors | — | Managed in claude.ai settings |
+
+## CLI tools wired into Claude Code
+
+| Tool | Version | Used for | Link |
+|------|---------|----------|------|
+| `rtk` | 0.51.0 | `PreToolUse` Bash hook, rewrites commands to token-optimized output | https://github.com/rtk-ai/rtk |
+| `jcodemunch-mcp` | 1.108.x | MCP server + Read/Edit/Subagent/Compact/Worktree hooks | https://github.com/jgravelle/jcodemunch-mcp |
+| `graphify` (`graphifyy` on PyPI) | 0.8.8 | Knowledge graph in `graphify-out/` | https://github.com/safishamsi/graphify |
+
+## Hooks (`~/.claude/settings.json`)
+
+| Event | Command |
+|-------|---------|
+| `PreToolUse` Read | `jcodemunch-mcp hook-pretooluse` |
+| `PreToolUse` Bash | `rtk hook claude` |
+| `PostToolUse` Edit\|Write | `jcodemunch-mcp hook-posttooluse` |
+| `PreCompact` | `jcodemunch-mcp hook-precompact` |
+| `SubagentStart` | `jcodemunch-mcp hook-subagent-start` |
+| `TaskCompleted` | `jcodemunch-mcp hook-taskcomplete` |
+| `WorktreeCreate` / `WorktreeRemove` | `jcodemunch-mcp hook-event create` / `remove` |
+| `SessionStart` | `hooks/caveman-activate.js` |
+| `UserPromptSubmit` | `hooks/caveman-mode-tracker.js` |
+| `statusLine` | caveman `caveman-statusline.sh` |
+
+## Custom slash commands (`~/.claude/commands/`)
+
+| Command | Purpose | Link |
+|---------|---------|------|
+| `/ship` | Branch, conventional commits, push, open PR | https://github.com/randyhbh/.claude/blob/main/commands/ship.md |
+| `/track-time` | Rebuild Jira time from status history and log worklogs | https://github.com/randyhbh/.claude/tree/main/commands/track-time |
+| `/make-local-issues` | Review code, write issues to `docs/issues` | https://github.com/randyhbh/.claude/blob/main/commands/make-local-issues.md |
+
+## Project-level (`mrge-pub-intelligence-hub/.claude/`, gitignored)
+
+- `.claude/agents/code-reviewer.md` — plan-vs-implementation review agent
+- `.claude/settings.local.json` — project permission allowlist
