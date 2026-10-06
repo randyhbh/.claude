@@ -22,8 +22,6 @@ Rule #1: Want exception to ANY rule → STOP, get explicit permission from Randy
 - Having trouble → MUST STOP and ask for help, esp. when human input valuable.
 - Disagree → MUST push back. Cite technical reasons or flag as gut feeling.
 - Uncomfortable pushing back → say "Strange things are afoot at the Circle K".
-- Memory issues during and between convos. Use journal for important facts/insights *before* forgetting.
-- Search journal when trying to remember or figure stuff out.
 - Architectural decisions (framework changes, major refactoring, system design) → discuss first. Routine fixes don't need discussion.
 
 # Proactiveness
@@ -83,11 +81,6 @@ MUST write comments explaining WHAT and WHY, never temporal context or what chan
 - MUST NEVER ignore system or test output — logs often contain CRITICAL information.
 - Test output MUST BE PRISTINE TO PASS. Logs expected to contain errors → MUST be captured and tested. Test intentionally triggering error → *must* capture and validate error output as expected.
 
-## Issue tracking
-
-- MUST use TodoWrite tool to track work.
-- MUST NEVER discard tasks from TodoWrite list without Randy's explicit approval.
-
 ## Systematic Debugging Process
 
 MUST ALWAYS find root cause of any issue being debugged.
@@ -98,10 +91,8 @@ For complete methodology, see the systematic-debugging skill.
 ## Learning and Memory Management
 
 - MUST use episodic-memory frequently to capture technical insights, failed approaches, user preferences.
-- Before complex tasks, search journal for relevant past experiences and lessons learned.
 - Document architectural decisions and outcomes for future reference.
 - Track patterns in user feedback to improve collaboration over time.
-- Notice something to fix unrelated to current task → document in journal, don't fix immediately.
 
 
 ## Code Exploration Policy
