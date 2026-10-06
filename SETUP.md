@@ -178,16 +178,16 @@ picks up; remove one with the `invalidate_cache` MCP tool and restart the servic
 
 | Event | Command |
 |-------|---------|
-| `PreToolUse` Read | `jcodemunch-mcp hook-pretooluse` |
-| `PreToolUse` Bash | `rtk hook claude` |
-| `PostToolUse` Edit\|Write | `jcodemunch-mcp hook-posttooluse` |
-| `PreCompact` | `jcodemunch-mcp hook-precompact` |
-| `SubagentStart` | `jcodemunch-mcp hook-subagent-start` |
-| `TaskCompleted` | `jcodemunch-mcp hook-taskcomplete` |
-| `WorktreeCreate` / `WorktreeRemove` | `jcodemunch-mcp hook-event create` / `remove` |
-| `SessionStart` | `hooks/caveman-activate.js` |
-| `UserPromptSubmit` | `hooks/caveman-mode-tracker.js` |
-| `statusLine` | caveman `caveman-statusline.sh` |
+| `PreToolUse` Read | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-pretooluse` |
+| `PreToolUse` Bash | `/opt/homebrew/bin/rtk hook claude` |
+| `PostToolUse` Edit\|Write | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-posttooluse` |
+| `PreCompact` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-precompact` |
+| `SubagentStart` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-subagent-start` |
+| `TaskCompleted` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-taskcomplete` |
+| `WorktreeCreate` / `WorktreeRemove` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-event create` / `remove` |
+| `SessionStart` | `caveman-activate.js` (from the caveman plugin) |
+| `UserPromptSubmit` | `caveman-mode-tracker.js` (from the caveman plugin) |
+| `statusLine` | `bash ~/.claude/hooks/caveman-statusline.sh` |
 
 jcodemunch hooks must use the absolute path `/Users/randyhbh/.local/bin/jcodemunch-mcp` (pipx install), which is what
 `jcodemunch-mcp init` writes. The bare name is not on the minimal `PATH` hooks get when Claude Code is launched outside a
