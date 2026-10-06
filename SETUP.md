@@ -28,18 +28,15 @@ Snapshot taken 2026-10-06 from `~/.claude/`, `~/.agents/`, `~/.claude.json` and 
 | Plugin | Version | What it does | Link |
 |--------|---------|--------------|------|
 | `superpowers@superpowers-marketplace` | 6.4.2 | Skills library: brainstorming, TDD, systematic debugging, plans, subagent-driven dev | https://github.com/obra/superpowers |
-| `superpowers@claude-plugins-official` | 6.4.1 | **Disabled** — duplicate of the above, from the official marketplace | https://github.com/obra/superpowers |
 | `episodic-memory@superpowers-marketplace` | 1.6.0 | Semantic search over past conversations | https://github.com/obra/episodic-memory |
 | `caveman@caveman` | 25d22f8 | Terse output mode, cavecrew subagents, statusline | https://github.com/JuliusBrussee/caveman |
 | `ponytail@ponytail` | 4.8.4 | YAGNI / laziest-working-solution mode | https://github.com/DietrichGebert/ponytail |
-| `context7@claude-plugins-official` | d182ca4 | Context7 docs MCP | https://github.com/anthropics/claude-plugins-official/tree/main/external_plugins/context7 |
 | `code-review@claude-plugins-official` | d182ca4 | Multi-agent PR review | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review |
 | `code-simplifier@claude-plugins-official` | 1.0.0 | Simplify-recent-code agent | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-simplifier |
 | `skill-creator@claude-plugins-official` | d182ca4 | Create and evaluate skills | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/skill-creator |
 | `claude-md-management@claude-plugins-official` | 1.0.0 | Audit and revise CLAUDE.md files | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management |
 | `jdtls-lsp@claude-plugins-official` | 1.0.0 | Java LSP (Eclipse JDT.LS) | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/jdtls-lsp |
 | `kotlin-lsp@claude-plugins-official` | 1.0.0 | Kotlin LSP | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/kotlin-lsp |
-| `atlassian@claude-plugins-official` | eb9a595 | Jira / Confluence MCP + skills | https://github.com/atlassian/atlassian-mcp-server |
 | `pg@aiguide` | 0.5.1 | PostgreSQL docs MCP + schema design skills | https://github.com/timescale/pg-aiguide |
 | `redpanda-connect@redpanda-connect-plugins` | 0.2.0 | Redpanda Connect pipeline + Bloblang skills | https://github.com/redpanda-data/connect |
 | `gitkraken-hooks@gitkraken` | 3.1.76 | Live session tracking in GitKraken products | No public link (local marketplace) |
@@ -115,15 +112,14 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 
 | Server | Scope | Transport | Link |
 |--------|-------|-----------|------|
-| `context7` | User (`~/.claude.json`) + plugin | HTTP `https://mcp.context7.com/mcp` | https://github.com/upstash/context7 |
+| `context7` | User (`~/.claude.json`, `CONTEXT7_API_KEY` header) | HTTP `https://mcp.context7.com/mcp` | https://github.com/upstash/context7 |
 | `jetbrains` | User | SSE `localhost:64342` (IntelliJ built-in MCP server) | https://www.jetbrains.com/help/idea/mcp-server.html |
 | `jcodemunch` | Project | stdio `/Users/randyhbh/.local/bin/jcodemunch-mcp` (pipx) | https://github.com/jgravelle/jcodemunch-mcp |
 | `grafana` | Project | stdio `uvx mcp-grafana` | https://github.com/grafana/mcp-grafana |
 | `radar` | Project | HTTP `localhost:9280/mcp` | Unknown origin |
 | `pg-aiguide` | Plugin (`pg@aiguide`) | — | https://github.com/timescale/pg-aiguide |
 | `episodic-memory` | Plugin | — | https://github.com/obra/episodic-memory |
-| `atlassian` | Plugin | — | https://github.com/atlassian/atlassian-mcp-server |
-| Atlassian Rovo, Claude Docs | claude.ai connectors | — | Managed in claude.ai settings |
+| Atlassian Rovo (Jira/Confluence), Claude Docs | claude.ai connectors | — | Managed in claude.ai settings |
 
 ## CLI tools wired into Claude Code
 
