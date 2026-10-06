@@ -130,7 +130,7 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | Tool | Version | Used for | Link |
 |------|---------|----------|------|
 | `rtk` | 0.51.0 | `PreToolUse` Bash hook, rewrites commands to token-optimized output | https://github.com/rtk-ai/rtk |
-| `jcodemunch-mcp` | 1.108.x | MCP server + Read/Edit/Subagent/Compact/Worktree hooks | https://github.com/jgravelle/jcodemunch-mcp |
+| `jcodemunch-mcp` | 1.108.x (MCP via `uvx`, hooks via pipx) | MCP server + Read/Edit/Subagent/Compact/Worktree hooks | https://github.com/jgravelle/jcodemunch-mcp |
 | `graphify` (`graphifyy` on PyPI) | 0.8.8 | Knowledge graph in `graphify-out/` | https://github.com/safishamsi/graphify |
 
 ## Hooks (`~/.claude/settings.json`)
@@ -147,6 +147,11 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | `SessionStart` | `hooks/caveman-activate.js` |
 | `UserPromptSubmit` | `hooks/caveman-mode-tracker.js` |
 | `statusLine` | caveman `caveman-statusline.sh` |
+
+jcodemunch hooks must use the absolute path `/Users/randyhbh/.local/bin/jcodemunch-mcp` (pipx install), which is what
+`jcodemunch-mcp init` writes. The bare name is not on the minimal `PATH` hooks get when Claude Code is launched outside a
+login shell (desktop app, IDE): `env -i /bin/sh -c 'jcodemunch-mcp --version'` fails with `command not found`. Keep the
+pipx copy current with `pipx upgrade jcodemunch-mcp` so the hooks match the `uvx`-run MCP server version.
 
 ## Custom slash commands (`~/.claude/commands/`)
 
