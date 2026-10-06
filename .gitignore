@@ -32,3 +32,14 @@ CLAUDE.original.md
 
 # Python
 __pycache__/
+
+# Runtime state written by Claude Code and plugins
+.ponytail-active
+daemon-auth-cooldown
+daemon-auth-status.json
+state/
+feedback/
+skills/synced/
+
+# Session plans can contain work details; keep local
+plans/
