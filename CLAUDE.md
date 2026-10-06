@@ -159,6 +159,3 @@ Always use jCodemunch-MCP tools for code navigation. Never fall back to Read, Gr
 - Use `get_session_context` to check what already read — avoid re-reading same files
 
 @RTK.md
-# graphify
-- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
-When the user types `/graphify`, invoke the Skill tool with `skill: "graphify"` before doing anything else.

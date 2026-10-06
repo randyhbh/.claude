@@ -105,7 +105,6 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | java-spring-boot | https://github.com/pluginagentmarketplace/custom-plugin-java | https://skills.sh/pluginagentmarketplace/custom-plugin-java/java-spring-boot |
 | kotlin-springboot | https://github.com/github/awesome-copilot | https://skills.sh/github/awesome-copilot/kotlin-springboot |
 | kubernetes-specialist | https://github.com/jeffallan/claude-skills | https://skills.sh/jeffallan/claude-skills/kubernetes-specialist |
-| graphify | https://github.com/safishamsi/graphify | — (lives in `~/.claude/skills/graphify/`, not in the skill lock) |
 
 ## MCP servers
 
@@ -126,7 +125,6 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 |------|---------|----------|------|
 | `rtk` | 0.51.0 | `PreToolUse` Bash hook, rewrites commands to token-optimized output | https://github.com/rtk-ai/rtk |
 | `jcodemunch-mcp` | 1.108.x (pipx; MCP server, hooks and watcher) | MCP server + Read/Edit/Subagent/Compact/Worktree hooks | https://github.com/jgravelle/jcodemunch-mcp |
-| `graphify` (`graphifyy` on PyPI) | 0.8.8 | Knowledge graph in `graphify-out/` | https://github.com/safishamsi/graphify |
 
 ## Rebuilding the jcodemunch setup
 
