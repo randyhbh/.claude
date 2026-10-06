@@ -170,6 +170,9 @@ jcodemunch-mcp index /Users/randyhbh/workspace/mrge-pub-intelligence-hub
 Verify with `jcodemunch-mcp watch-status` (service `active: true`, repos `fresh`) and check
 `~/.code-index/logs/watch.err` for `Now watching <repo>` and no `crashed` lines.
 
+There is no watch list: `watch-all` re-scans the index registry every 30s and watches every indexed repo. To watch a new
+repo, index it (`jcodemunch-mcp index <repo-root>`); to stop watching one, delete its index.
+
 Index repo roots only. Indexing a parent folder like `~/workspace` creates a separate giant index that the watcher also
 picks up; remove one with the `invalidate_cache` MCP tool and restart the service with
 `launchctl kickstart -k gui/$(id -u)/us.gravelle.jcodemunch-watch`.
