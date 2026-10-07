@@ -111,7 +111,7 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | Server | Scope | Transport | Link |
 |--------|-------|-----------|------|
 | `context7` | User (`~/.claude.json`, `CONTEXT7_API_KEY` header) | HTTP `https://mcp.context7.com/mcp` | https://github.com/upstash/context7 |
-| `jetbrains` | User | SSE `localhost:64342` (IntelliJ built-in MCP server) | https://www.jetbrains.com/help/idea/mcp-server.html |
+| `jetbrains` | User + Project (`.mcp.json` in mrge-pub-intelligence-hub, wins there) | SSE `localhost:64342` (IntelliJ built-in MCP server) | https://www.jetbrains.com/help/idea/mcp-server.html |
 | `jcodemunch` | User (`~/.claude.json`, all repos) + Project (`.mcp.json` in mrge-pub-intelligence-hub, wins there) | stdio `/Users/randyhbh/.local/bin/jcodemunch-mcp` / `${JCODEMUNCH_BIN:-jcodemunch-mcp}` (pipx install) | https://github.com/jgravelle/jcodemunch-mcp |
 | `grafana` | Project | stdio `uvx mcp-grafana` | https://github.com/grafana/mcp-grafana |
 | `radar` | Project (`.mcp.json` in mrge-pub-intelligence-hub, plus local entry) | HTTP `localhost:9280/mcp`, only while `kubectl radar` runs | https://github.com/skyhook-io/radar (krew plugin) |
