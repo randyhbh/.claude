@@ -112,7 +112,7 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 |--------|-------|-----------|------|
 | `context7` | User (`~/.claude.json`, `CONTEXT7_API_KEY` header) | HTTP `https://mcp.context7.com/mcp` | https://github.com/upstash/context7 |
 | `jetbrains` | User | SSE `localhost:64342` (IntelliJ built-in MCP server) | https://www.jetbrains.com/help/idea/mcp-server.html |
-| `jcodemunch` | Project (`.mcp.json` in mrge-pub-intelligence-hub) | stdio `${JCODEMUNCH_BIN:-jcodemunch-mcp}` (pipx install) | https://github.com/jgravelle/jcodemunch-mcp |
+| `jcodemunch` | User (`~/.claude.json`, all repos) + Project (`.mcp.json` in mrge-pub-intelligence-hub, wins there) | stdio `/Users/randyhbh/.local/bin/jcodemunch-mcp` / `${JCODEMUNCH_BIN:-jcodemunch-mcp}` (pipx install) | https://github.com/jgravelle/jcodemunch-mcp |
 | `grafana` | Project | stdio `uvx mcp-grafana` | https://github.com/grafana/mcp-grafana |
 | `radar` | Project | HTTP `localhost:9280/mcp` | Unknown origin |
 | `pg-aiguide` | Plugin (`pg@aiguide`) | — | https://github.com/timescale/pg-aiguide |
@@ -147,9 +147,9 @@ pipx inject jcodemunch-mcp watchfiles
 # 2. Raise the local-folder file cap; the default 2000 truncates mrge-pub-intelligence-hub (~2.6k tracked files)
 #    In ~/.code-index/config.jsonc set:  "max_folder_files": 5000,
 
-# 3. MCP server: mrge-pub-intelligence-hub ships it in .mcp.json (approve on first start). For other repos,
-#    from inside the checkout (local scope, stored in ~/.claude.json), using the same pipx binary:
-claude mcp add jcodemunch -- /Users/randyhbh/.local/bin/jcodemunch-mcp
+# 3. MCP server at user scope (all repos). mrge-pub-intelligence-hub also ships it in .mcp.json, which wins there:
+#    one server runs; ignore the "different endpoints" warning from claude mcp list (OAuth-only).
+claude mcp add jcodemunch -s user -- /Users/randyhbh/.local/bin/jcodemunch-mcp
 
 # 4. Hooks: copy the jcodemunch entries from the Hooks table below into ~/.claude/settings.json,
 #    using the absolute path from `which jcodemunch-mcp`
