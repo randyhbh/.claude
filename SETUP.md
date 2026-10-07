@@ -112,7 +112,7 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 |--------|-------|-----------|------|
 | `context7` | User (`~/.claude.json`, `CONTEXT7_API_KEY` header) | HTTP `https://mcp.context7.com/mcp` | https://github.com/upstash/context7 |
 | `jetbrains` | User | SSE `localhost:64342` (IntelliJ built-in MCP server) | https://www.jetbrains.com/help/idea/mcp-server.html |
-| `jcodemunch` | Project | stdio `/Users/randyhbh/.local/bin/jcodemunch-mcp` (pipx) | https://github.com/jgravelle/jcodemunch-mcp |
+| `jcodemunch` | Project (`.mcp.json` in mrge-pub-intelligence-hub) | stdio `${JCODEMUNCH_BIN:-jcodemunch-mcp}` (pipx install) | https://github.com/jgravelle/jcodemunch-mcp |
 | `grafana` | Project | stdio `uvx mcp-grafana` | https://github.com/grafana/mcp-grafana |
 | `radar` | Project | HTTP `localhost:9280/mcp` | Unknown origin |
 | `pg-aiguide` | Plugin (`pg@aiguide`) | — | https://github.com/timescale/pg-aiguide |
@@ -147,8 +147,8 @@ pipx inject jcodemunch-mcp watchfiles
 # 2. Raise the local-folder file cap; the default 2000 truncates mrge-pub-intelligence-hub (~2.6k tracked files)
 #    In ~/.code-index/config.jsonc set:  "max_folder_files": 5000,
 
-# 3. MCP server, from inside the project checkout (local scope, stored in ~/.claude.json)
-#    Uses the pipx binary so MCP server, hooks and watcher run one install (no uvx copy)
+# 3. MCP server: mrge-pub-intelligence-hub ships it in .mcp.json (approve on first start). For other repos,
+#    from inside the checkout (local scope, stored in ~/.claude.json), using the same pipx binary:
 claude mcp add jcodemunch -- /Users/randyhbh/.local/bin/jcodemunch-mcp
 
 # 4. Hooks: copy the jcodemunch entries from the Hooks table below into ~/.claude/settings.json,
