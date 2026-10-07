@@ -117,7 +117,7 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | `radar` | Project | HTTP `localhost:9280/mcp` | Unknown origin |
 | `pg-aiguide` | Plugin (`pg@aiguide`) | — | https://github.com/timescale/pg-aiguide |
 | `episodic-memory` | Plugin | — | https://github.com/obra/episodic-memory |
-| Atlassian Rovo (Jira/Confluence), Claude Docs | claude.ai connectors | — | Managed in claude.ai settings |
+| Atlassian Rovo (Jira/Confluence), Claude Docs | claude.ai connectors (in mrge-pub-intelligence-hub the `atlassian` server from `.mcp.json` replaces Rovo, same endpoint) | — | Managed in claude.ai settings |
 
 ## CLI tools wired into Claude Code
 
