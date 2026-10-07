@@ -99,7 +99,7 @@
     ],
     "PreToolUse": [
       {
-        "matcher": "Read",
+        "matcher": "Read|Grep|Glob|Bash",
         "hooks": [
           {
             "type": "command",
@@ -168,6 +168,15 @@
             "type": "command",
             "command": "/bin/bash /Users/randyhbh/.claude/hooks/episodic-memory-abi-check.sh",
             "timeout": 120
+          }
+        ]
+      },
+      {
+        "matcher": "compact|resume|fork",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/randyhbh/.local/bin/jcodemunch-mcp hook-sessionstart"
           }
         ]
       }

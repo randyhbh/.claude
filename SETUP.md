@@ -151,8 +151,9 @@ pipx inject jcodemunch-mcp watchfiles
 #    one server runs; ignore the "different endpoints" warning from claude mcp list (OAuth-only).
 claude mcp add jcodemunch -s user -- /Users/randyhbh/.local/bin/jcodemunch-mcp
 
-# 4. Hooks: copy the jcodemunch entries from the Hooks table below into ~/.claude/settings.json,
-#    using the absolute path from `which jcodemunch-mcp`
+# 4. Hooks into ~/.claude/settings.json with absolute paths (worktree + enforcement hooks). Run in a throwaway dir:
+#    init also writes CLAUDE.md/AGENTS.md into the current dir. Re-run after upgrades to converge to shipped hooks.
+(cd "$(mktemp -d)" && jcodemunch-mcp init --client none --claude-md project --hooks --yes)
 
 # 5. Background re-indexing (launchd, starts at login, KeepAlive)
 jcodemunch-mcp watch-install
@@ -185,13 +186,14 @@ picks up; remove one with the `invalidate_cache` MCP tool and restart the servic
 
 | Event | Command |
 |-------|---------|
-| `PreToolUse` Read | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-pretooluse` |
+| `PreToolUse` Read\|Grep\|Glob\|Bash | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-pretooluse` (advisory: steers code searches in indexed repos to jcodemunch, never blocks) |
 | `PreToolUse` Bash | `/opt/homebrew/bin/rtk hook claude` |
 | `PostToolUse` Edit\|Write | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-posttooluse` |
 | `PreCompact` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-precompact` |
 | `SubagentStart` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-subagent-start` |
 | `TaskCompleted` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-taskcomplete` |
 | `WorktreeCreate` / `WorktreeRemove` | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-event create` / `remove` |
+| `SessionStart` compact\|resume\|fork | `/Users/randyhbh/.local/bin/jcodemunch-mcp hook-sessionstart` (restores jcodemunch session state) |
 | `SessionStart` | `caveman-activate.js` (from the caveman plugin) |
 | `SessionStart` | `/bin/bash ~/.claude/hooks/episodic-memory-abi-check.sh` — rebuilds episodic-memory's `better-sqlite3` after a Node ABI change; silent when healthy (~85 ms). Tests: `bash ~/.claude/hooks/episodic-memory-abi-check.test.sh`. Remove once obra/episodic-memory#94/#170 are fixed |
 | `UserPromptSubmit` | `caveman-mode-tracker.js` (from the caveman plugin) |
