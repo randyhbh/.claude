@@ -210,7 +210,7 @@ login shell (desktop app, IDE): `env -i /bin/sh -c 'jcodemunch-mcp --version'` f
 | `/track-time` | Rebuild Jira time from status history and log worklogs | https://github.com/randyhbh/.claude/tree/main/commands/track-time |
 | `/make-local-issues` | Review code, write issues to `docs/issues` | https://github.com/randyhbh/.claude/blob/main/commands/make-local-issues.md |
 
-## Project-level (`mrge-pub-intelligence-hub/.claude/`, gitignored)
+## Project-level (`mrge-pub-intelligence-hub`)
 
-- `.claude/agents/code-reviewer.md` — plan-vs-implementation review agent
-- `.claude/settings.local.json` — project permission allowlist
+The team setup is committed in the repo (`.claude/`, `.mcp.json`, `docs/agents/claude-code-setup.md`). Only
+`.claude/settings.local.json` (personal permission allowlist) stays local and gitignored.
