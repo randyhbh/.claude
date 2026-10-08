@@ -42,7 +42,6 @@ python3 -c "import json,os;p=os.path.expanduser('~/.claude/');d=json.load(open(p
 | `episodic-memory@superpowers-marketplace` | 1.6.0 | Semantic search over past conversations | https://github.com/obra/episodic-memory |
 | `caveman@caveman` | 25d22f8 | Terse output mode + skills (caveman, caveman-commit/-compress/-help/-review/-stats, cavecrew), cavecrew subagents, statusline. Skills come only from the plugin, not `npx skills` | https://github.com/JuliusBrussee/caveman |
 | `ponytail@ponytail` | 4.8.4 | YAGNI / laziest-working-solution mode | https://github.com/DietrichGebert/ponytail |
-| `code-review@claude-plugins-official` | d182ca4 | Multi-agent PR review | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-review |
 | `code-simplifier@claude-plugins-official` | 1.0.0 | Simplify-recent-code agent | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/code-simplifier |
 | `skill-creator@claude-plugins-official` | d182ca4 | Create and evaluate skills | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/skill-creator |
 | `claude-md-management@claude-plugins-official` | 1.0.0 | Audit and revise CLAUDE.md files | https://github.com/anthropics/claude-plugins-official/tree/main/plugins/claude-md-management |
@@ -111,7 +110,7 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | Server | Scope | Transport | Link |
 |--------|-------|-----------|------|
 | `context7` | User (`~/.claude.json`, `CONTEXT7_API_KEY` header) | HTTP `https://mcp.context7.com/mcp` | https://github.com/upstash/context7 |
-| `jetbrains` | User + Project (`.mcp.json` in mrge-pub-intelligence-hub, wins there) | SSE `localhost:64342` (IntelliJ built-in MCP server) | https://www.jetbrains.com/help/idea/mcp-server.html |
+| `jetbrains` | User + Project (`.mcp.json` in mrge-pub-intelligence-hub, wins there) | HTTP `127.0.0.1:64342/stream` (IntelliJ built-in MCP server) | https://www.jetbrains.com/help/idea/mcp-server.html |
 | `jcodemunch` | User (`~/.claude.json`, all repos) + Project (`.mcp.json` in mrge-pub-intelligence-hub, wins there) | stdio `/Users/randyhbh/.local/bin/jcodemunch-mcp` / `${JCODEMUNCH_BIN:-jcodemunch-mcp}` (pipx install) | https://github.com/jgravelle/jcodemunch-mcp |
 | `grafana` | Project (`.mcp.json`, Grafana Cloud MCP server, OAuth) | HTTP `https://mcp.grafana.com/mcp` | https://github.com/grafana/mcp-grafana |
 | `radar` | Project (`.mcp.json` in mrge-pub-intelligence-hub, plus local entry) | HTTP `localhost:9280/mcp`, only while `kubectl radar` runs | https://github.com/skyhook-io/radar (krew plugin) |
