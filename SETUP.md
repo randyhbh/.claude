@@ -73,14 +73,11 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | implement | https://skills.sh/mattpocock/skills/implement |
 | improve-codebase-architecture | https://skills.sh/mattpocock/skills/improve-codebase-architecture |
 | loop-me | https://skills.sh/mattpocock/skills/loop-me |
-| migrate-to-shoehorn | https://skills.sh/mattpocock/skills/migrate-to-shoehorn |
 | prototype | https://skills.sh/mattpocock/skills/prototype |
 | research | https://skills.sh/mattpocock/skills/research |
-| resolving-merge-conflicts | https://skills.sh/mattpocock/skills/resolving-merge-conflicts |
 | scaffold-exercises | https://skills.sh/mattpocock/skills/scaffold-exercises |
 | setup-matt-pocock-skills | https://skills.sh/mattpocock/skills/setup-matt-pocock-skills |
 | setup-pre-commit | https://skills.sh/mattpocock/skills/setup-pre-commit |
-| setup-ts-deep-modules | https://skills.sh/mattpocock/skills/setup-ts-deep-modules |
 | tdd | https://skills.sh/mattpocock/skills/tdd |
 | teach | https://skills.sh/mattpocock/skills/teach |
 | to-questionnaire | https://skills.sh/mattpocock/skills/to-questionnaire |
@@ -90,10 +87,7 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | wait-what | https://skills.sh/mattpocock/skills/wait-what |
 | wayfinder | https://skills.sh/mattpocock/skills/wayfinder |
 | wizard | https://skills.sh/mattpocock/skills/wizard |
-| writing-beats | https://skills.sh/mattpocock/skills/writing-beats |
 | writing-for-agents | https://skills.sh/mattpocock/skills/writing-for-agents |
-| writing-fragments | https://skills.sh/mattpocock/skills/writing-fragments |
-| writing-shape | https://skills.sh/mattpocock/skills/writing-shape |
 
 ### Other sources
 
