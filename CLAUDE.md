@@ -40,6 +40,7 @@ Only pause for confirmation when:
 ## Test Driven Development  (TDD)
 
 - Every new feature or bugfix follows Test Driven Development (test-driven-development skill).
+- These testing rules take precedence over the ponytail plugin's test guidance ("one runnable check", "trivial one-liners need no test"); its minimal-code ladder still applies to production code.
 
 ## Writing code
 
