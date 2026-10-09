@@ -51,7 +51,7 @@ Only pause for confirmation when:
 - Get Randy's explicit approval before adding any backward compatibility.
 - Match style and formatting of surrounding code, even if it differs from standard guides. Consistency within file trumps external standards.
 - Don't hand-edit whitespace that doesn't affect execution or output; use the formatting tool.
-- Fix broken things immediately when found. No permission needed to fix bugs.
+- Fix broken things you find in the code you're working on; no permission needed. Note unrelated problems instead of fixing them mid-task.
 
 ## Naming and Comments
 
