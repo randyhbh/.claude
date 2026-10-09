@@ -77,7 +77,6 @@ Symlinked from `~/.agents/skills/` into `~/.claude/skills/`.
 | research | https://skills.sh/mattpocock/skills/research |
 | scaffold-exercises | https://skills.sh/mattpocock/skills/scaffold-exercises |
 | setup-matt-pocock-skills | https://skills.sh/mattpocock/skills/setup-matt-pocock-skills |
-| setup-pre-commit | https://skills.sh/mattpocock/skills/setup-pre-commit |
 | tdd | https://skills.sh/mattpocock/skills/tdd |
 | teach | https://skills.sh/mattpocock/skills/teach |
 | to-questionnaire | https://skills.sh/mattpocock/skills/to-questionnaire |
