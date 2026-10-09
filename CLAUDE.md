@@ -52,7 +52,7 @@ Only pause for confirmation when:
 - Get Randy's explicit approval before adding any backward compatibility.
 - Match style and formatting of surrounding code, even if it differs from standard guides. Consistency within file trumps external standards.
 - Don't hand-edit whitespace that doesn't affect execution or output; use the formatting tool.
-- Fix broken things you find in the code you're working on; no permission needed. Note unrelated problems instead of fixing them mid-task.
+- Fix broken things you find in the code you're working on; no permission needed. Don't fix an unrelated problem mid-task: write it up in `docs/issues/` in the `/make-local-issues` format (title, problem, `file:line` evidence, suggested fix) and list it in your final summary.
 
 ## Naming and Comments
 
