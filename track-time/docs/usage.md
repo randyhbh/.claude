@@ -102,7 +102,7 @@ LLM call anywhere. Useful for cron, CI, or just running it from a plain
 terminal on a machine that has the Keychain token and `config.json` set up:
 
 ```bash
-cd ~/.claude/commands/track-time/scripts
+cd ~/.claude/track-time/scripts
 
 # Peek at the numbers without any risk of posting.
 python3 run_track_time.py --dry-run

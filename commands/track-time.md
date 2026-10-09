@@ -16,7 +16,7 @@ its output, gate on confirmation, and run it again to post. Never call `searchJi
 
 1. **Dry run.**
    ```bash
-   python3 ~/.claude/commands/track-time/scripts/run_track_time.py --dry-run
+   python3 ~/.claude/track-time/scripts/run_track_time.py --dry-run
    ```
    This prints a proposal table (ticket key, delta hours/minutes, tag or skip reason) and exits —
    nothing is posted, nothing is prompted.
@@ -30,11 +30,11 @@ its output, gate on confirmation, and run it again to post. Never call `searchJi
 
 4. **Post.**
    ```bash
-   python3 ~/.claude/commands/track-time/scripts/run_track_time.py --yes
+   python3 ~/.claude/track-time/scripts/run_track_time.py --yes
    ```
    or, if the user excluded specific tickets:
    ```bash
-   python3 ~/.claude/commands/track-time/scripts/run_track_time.py --yes --exclude YKBOT-1,YKBOT-2
+   python3 ~/.claude/track-time/scripts/run_track_time.py --yes --exclude YKBOT-1,YKBOT-2
    ```
    `--yes` skips the script's own interactive prompt (already satisfied by step 3 in this
    conversation) — it still prints the proposal again before posting.
@@ -45,6 +45,6 @@ its output, gate on confirmation, and run it again to post. Never call `searchJi
 ## Setup note
 
 If the script errors on missing config or a Keychain token, see
-`~/.claude/commands/track-time/README.md` for one-time setup (API token in Keychain, `config.json`
+`~/.claude/track-time/README.md` for one-time setup (API token in Keychain, `config.json`
 fields). Don't try to work around a missing token by falling back to MCP tools — surface the setup
 error to the user instead.
