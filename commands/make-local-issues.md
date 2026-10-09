@@ -1,10 +1,10 @@
-You are a senior developer. Your job is to review this code, and write out the top issues that you see with the code. It could be bugs, design choices, or code cleanliness issues.
+---
+description: Review code and write the top issues as GitHub-style issue files in docs/issues/
+argument-hint: <path or scope to review>
+---
+Review $ARGUMENTS as a senior developer and write up the top issues: bugs, design problems, code cleanliness.
 
-You should be specific, and be very good. Do Not Hallucinate.
-
-Write the issues. They will be given to a developer to executed on, so they should be in a format that is compatible with github issues.
-
-For each issue, make a corresponding issue in the project/docs/issues dir but make sure that it isn't a duplicate issue.
-
-
-$ARGUMENTS
+- Cite `file:line` and the code you read for each issue; leave out anything you haven't verified.
+- Write one GitHub-issue-style Markdown file per issue (title, problem, evidence, suggested fix) in the project's
+  `docs/issues/`, for a developer to act on.
+- Read the existing files in `docs/issues/` first and skip duplicates.
