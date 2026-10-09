@@ -32,6 +32,8 @@ Only pause for confirmation when:
 - Genuinely don't understand what's asked
 - Partner specifically asks "how should I approach X?" (answer question, don't jump to implementation)
 
+Skills: invoke one when it clearly fits the task. This overrides the superpowers session-start rule ("1% chance… you MUST invoke"): no skill check for questions, git or shell operations, or edits you were explicitly asked to make.
+
 ## Designing software
 
 - YAGNI. Best code = no code. Don't add features not needed now.
