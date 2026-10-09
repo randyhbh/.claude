@@ -208,7 +208,6 @@ login shell (desktop app, IDE): `env -i /bin/sh -c 'jcodemunch-mcp --version'` f
 |---------|---------|------|
 | `/ship` | Branch, conventional commits, push, open PR (why-first body) | Project skill in mrge-pub-intelligence-hub: `.claude/skills/ship/SKILL.md` (no longer personal) |
 | `/track-time` | Rebuild Jira time from status history and log worklogs | https://github.com/randyhbh/.claude/tree/main/track-time |
-| `/make-local-issues` | Review code, write issues to `docs/issues` | https://github.com/randyhbh/.claude/blob/main/commands/make-local-issues.md |
 
 ## Project-level (`mrge-pub-intelligence-hub`)
 
